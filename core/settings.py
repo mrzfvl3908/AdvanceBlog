@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 
     #my_apps
     'accounts_app.apps.AccountsAppConfig',
-    'blog_app.apps.BlogAppConfig',
+    # 'blog_app.apps.BlogAppConfig',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +121,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# user manager config
+AUTH_USER_MODEL = 'accounts_app.User'
