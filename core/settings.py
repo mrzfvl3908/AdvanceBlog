@@ -39,7 +39,7 @@ INSTALLED_APPS = [
 
     # my_apps
     'accounts_app.apps.AccountsAppConfig',
-    # 'blog_app.apps.BlogAppConfig',
+    'blog_app.apps.BlogAppConfig',
 
     #my_install_app
     'django_cleanup',
