@@ -14,13 +14,19 @@ class CustomUserAdmin(UserAdmin):
             "fields": ('email', 'password'),
         }),
         ('permissions', {
-            "fields": ('is_active', 'is_staff','is_superuser'),
+            "fields": ('is_active', 'is_staff', 'is_superuser'),
+        }),
+        ('group permissions', {
+            "fields": ('groups', 'user_permissions'),
+        }),
+        ('important date', {
+            "fields": ('last_login',),
         }),
     )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2','is_staff', 'is_active','is_superuser',)
+            'fields': ('email', 'password1', 'password2', 'is_staff', 'is_active', 'is_superuser',)
         }),
     )
 
