@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-
+from django.urls import reverse
+from django.utils.text import slugify
 
 # getting user model object
 User = get_user_model()
@@ -19,6 +20,18 @@ class Post(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     published_date = models.DateTimeField()
+    slug = models.SlugField(unique=True, blank=True, allow_unicode=True, null=True)
+
+    # class Meta:
+    #     ordering = ['-created_date']
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title, allow_unicode=True)
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("blog_app:post-detail", kwargs={"slug": self.slug})
 
     def __str__(self):
         return self.title
