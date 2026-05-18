@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # my_apps
     'accounts_app.apps.AccountsAppConfig',
     'blog_app.apps.BlogAppConfig',
+    'home_app.apps.HomeAppConfig',
 
     #my_install_app
     'django_cleanup',
