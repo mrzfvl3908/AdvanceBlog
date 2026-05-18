@@ -9,7 +9,7 @@ class PostListView(ListView):
     # model = Post
     queryset = Post.objects.filter(status=True).order_by('-created_date')
     context_object_name = 'posts'
-    paginate_by = 1
+    paginate_by = 2
 
     # def get_queryset(self):
     #     posts = Post.objects.filter(status=True)

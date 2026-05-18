@@ -5,90 +5,110 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <main class="tm-main">
-            <!-- Search form -->
-            <div class="row tm-row">
-                <div class="col-12">
-                    <form method="GET" class="form-inline tm-mb-80 tm-search-form">
-                        <input class="form-control tm-search-input" name="query" type="text" placeholder="Search..."
-                               aria-label="Search">
-                        <button class="tm-search-button" type="submit">
-                            <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
-                        </button>
-                    </form>
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+    <div class="heading-page header-text">
+        <section class="page-heading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-content">
+                            <h4>Recent Posts</h4>
+                            <h2>Our Recent Blog Entries</h2>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row tm-row">
-                {% for post in posts %}
-                    <article class="col-12 col-md-6 tm-post">
-                        <hr class="tm-hr-primary">
-                        <a href="{{ post.get_absolute_url }}" class="effect-lily tm-post-link tm-pt-60">
-                            <div class="tm-post-link-inner">
-                                <img src="{{ post.image.url }}" alt="Image" class="img-fluid">
-                            </div>
-                            <span class="position-absolute tm-new-badge">New</span>
-                            <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{ post.title }}</h2>
-                        </a>
-                        <p class="tm-pt-30">
-                            {{ post.content|truncatewords:20 }}
-                        </p>
-                        <div class="d-flex justify-content-between tm-pt-45">
-                            <span class="tm-color-primary">{{ post.category.name }}</span>
-                            <span class="tm-color-primary">{{ post.created_date.date|timesince }}</span>
-                        </div>
-                        <hr>
-                        <div class="d-flex justify-content-between">
-                            <span>36 comments</span>
-                            <span>{{ post.author.email }}</span>
-                        </div>
-                    </article>
-                {% endfor %}
+        </section>
+    </div>
 
 
-            </div>
-            <div class="row tm-row tm-mt-100 tm-mb-75">
-
-                <div class="tm-prev-next-wrapper">
-                    {% if page_obj.has_previous %}
-                        <a href="?page={{ page_obj.previous_page_number }}"
-                           class="mb-2 tm-btn tm-btn-primary tm-prev-next tm-mr-20">Prev</a>
-                    {% endif %}
-
-                    {% if page_obj.has_next %}
-                        <a href="?page={{ page_obj.next_page_number }}" class="mb-2 tm-btn tm-btn-primary tm-prev-next">Next</a>
-                    {% endif %}
-                </div>
-
-                <div class="tm-paging-wrapper">
-                    <span class="d-inline-block mr-3">Page</span>
-                    <nav class="tm-paging-nav d-inline-block">
-                        <ul>
-                            {% for num in page_obj.paginator.page_range %}
-                                {% if num == page_obj.number %}
-                                    <li class="tm-paging-item active">
-                                        <a class="mb-2 tm-btn tm-paging-link">{{ num }}</a>
-                                    </li>
-                                {% else %}
-                                    <li class="tm-paging-item">
-                                        <a href="?page={{ num }}" class="mb-2 tm-btn tm-paging-link">{{ num }}</a>
-                                    </li>
-                                {% endif %}
+    <section class="blog-posts grid-system">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="all-blog-posts">
+                        <div class="row">
+                            {% for post in page_obj %}
+                                <div class="col-lg-6">
+                                    <div class="blog-post">
+                                        <div class="blog-thumb">
+                                            <img src="{{ post.image.url }}" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <span>{{ post.category.all|join:", " }}</span>
+                                            <a href="{{ post.get_absolute_url }}"><h4>{{ post.title }}</h4></a>
+                                            <ul class="post-info">
+                                                <li>
+                                                    {% if post.author.email %}
+                                                        <a href="">
+                                                            {{ post.author.email }}
+                                                        </a>
+                                                    {% else %}
+                                                        {{ post.author.email }}
+                                                    {% endif %}
+                                                </li>
+                                                <li>{{ post.created_date|date:"d/M/Y" }}</li>
+                                                <li>{{ post.counted_views }}</li>
+                                            </ul>
+                                            <p>{{ post.content|truncatechars:100 }}</p>
+                                            <div class="post-options">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+{#                                                        <ul class="post-tags">#}
+{#                                                            <li><i class="fa fa-tags"></i></li>#}
+{#                                                            <li>{{ post.tag.all|join:", " }}</li>#}
+{#                                                        </ul>#}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             {% endfor %}
 
-                        </ul>
-                    </nav>
+                            <div class="col-lg-12">
+                                <ul class="page-numbers">
+                                    {% if page_obj.has_previous %}
+                                        <li><a href="?page={{ page_obj.previous_page_number }}"><i
+                                                class="fa fa-angle-double-left"></i></a></li>
+                                    {% endif %}
+
+                                    {% for num in page_obj.paginator.page_range %}
+                                        {% if num == page_obj.number %}
+                                        <li class="active"><a href="">{{ num }}</a></li>
+                                        {% else %}
+                                        <li><a href="?page={{ num }}">{{ num }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    {% if page_obj.has_next %}
+                                        <li><a href="?page={{ page_obj.next_page_number }}"><i
+                                                class="fa fa-angle-double-right"></i></a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="sidebar-item search">
+{#                                    <form id="search_form" name="s" method="GET" action="{% url 'blog_app:search' %}">#}
+{#                                        <input type="text" name="s" class="searchText" placeholder="type to search..."#}
+{#                                               autocomplete="on">#}
+{#                                    </form>#}
+                                </div>
+                            </div>
+{#                            {% recent_posts %}#}
+{#                            {% post_categories %}#}
+{#                            {% post_tags %}#}
+                        </div>
+                    </div>
                 </div>
             </div>
-            <footer class="row tm-row">
-                <hr class="col-12">
-                <div class="col-md-6 col-12 tm-color-gray">
-                    Design: <a rel="nofollow" target="_parent" href="https://templatemo.com" class="tm-external-link">TemplateMo</a>
-                </div>
-                <div class="col-md-6 col-12 tm-color-gray tm-copyright">
-                    Copyright 2020 Xtra Blog Company Co. Ltd.
-                </div>
-            </footer>
-        </main>
-    </div>
+        </div>
+    </section>
 {% endblock %}
