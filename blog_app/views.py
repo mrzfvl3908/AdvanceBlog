@@ -3,10 +3,11 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.views.generic.base import TemplateView
 from blog_app.forms import PostForm
 from blog_app.models import Post
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
-class PostListView(ListView):
+class PostListView(LoginRequiredMixin,ListView):
     # model = Post
     queryset = Post.objects.filter(status=True).order_by('-created_date')
     context_object_name = 'posts'
@@ -16,11 +17,11 @@ class PostListView(ListView):
     #     posts = Post.objects.filter(status=True)
     #     return posts
 
-class PostDetailView(DetailView):
+class PostDetailView(LoginRequiredMixin,DetailView):
     model = Post
 
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin,CreateView):
     model = Post
     form_class = PostForm
     # fields = ['author','title', 'content', 'status', 'category','published_date']
@@ -31,11 +32,11 @@ class PostCreateView(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-class PostUpdateView(UpdateView):
+class PostUpdateView(LoginRequiredMixin,UpdateView):
     model = Post
     form_class = PostForm
     success_url = '/blog/post/'
 
-class PostDeleteView(DeleteView):
+class PostDeleteView(LoginRequiredMixin,DeleteView):
     model = Post
     success_url = '/blog/post/'

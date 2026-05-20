@@ -25,6 +25,9 @@
 
     <section class="blog-posts grid-system">
         <div class="container">
+        <h5><a href="{% url 'blog_app:post-create' %}">AddPost</a></h5>
+        <br>
+        <br>
             <div class="row">
                 <div class="col-lg-8">
                     <div class="all-blog-posts">
@@ -34,7 +37,7 @@
                                     <div class="blog-post">
                                         <div class="blog-thumb">
                                             {% if post.image %}
-                                                <img src="{{ post.image.url }}" alt="">
+                                                <img src="{{ post.image.url }}" alt="{{ post.title }}">
                                             {% else %}
                                                 <img src="{% static 'images/default-post.jpg' %}" alt="">
                                             {% endif %}
