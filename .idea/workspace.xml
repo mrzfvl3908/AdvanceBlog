@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6529504-7f04-4b22-859f-44ec48c1e77b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/blog_app/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog_app/templates/blog_app/post_confirm_delete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_app/templates/blog_app/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog_app/templates/blog_app/post_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_app/templates/blog_app/post_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog_app/templates/blog_app/post_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Dockerfile" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -136,7 +140,7 @@
       <workItem from="1779088584439" duration="2440000" />
       <workItem from="1779091060776" duration="38000" />
       <workItem from="1779094003513" duration="1773000" />
-      <workItem from="1779259351028" duration="1662000" />
+      <workItem from="1779259351028" duration="6348000" />
     </task>
     <servers />
   </component>

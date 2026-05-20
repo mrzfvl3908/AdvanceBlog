@@ -36,7 +36,11 @@
                             <div class="col-lg-12">
                                 <div class="blog-post">
                                     <div class="blog-thumb">
-                                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                                        {% if post.image %}
+                                                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                                            {% else %}
+                                                <img src="{% static 'images/default-post.jpg' %}" alt="">
+                                            {% endif %}
                                     </div>
                                     <div class="down-content">
                                         <span>{{ post.category.name }}</span>

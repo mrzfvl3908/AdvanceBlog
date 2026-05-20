@@ -54,6 +54,9 @@
                                                 <li>{{ post.counted_views }}</li>
                                             </ul>
                                             <p>{{ post.content|truncatechars:100 }}</p>
+                                        <h6><a href="{% url 'blog_app:post-update' slug=post.slug %}">EditPost</a></h6>
+                                        <br>
+                                        <h6><a href="{% url 'blog_app:post-delete' slug=post.slug %}">DeletePost</a></h6>
                                         </div>
                                     </div>
                                 </div>

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.views.generic.base import TemplateView
 from blog_app.forms import PostForm
 from blog_app.models import Post
@@ -24,4 +24,18 @@ class PostCreateView(CreateView):
     model = Post
     form_class = PostForm
     # fields = ['author','title', 'content', 'status', 'category','published_date']
+    success_url = '/blog/post/'
+
+    # به صورت خودکار فردی که پست ایجاد میکنه اسم یا ایمیلش زیر پست قرار کیگیره و نیاز به وارد کزدن دستی نیست
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+class PostUpdateView(UpdateView):
+    model = Post
+    form_class = PostForm
+    success_url = '/blog/post/'
+
+class PostDeleteView(DeleteView):
+    model = Post
     success_url = '/blog/post/'
