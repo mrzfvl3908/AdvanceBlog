@@ -3,11 +3,12 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.views.generic.base import TemplateView
 from blog_app.forms import PostForm
 from blog_app.models import Post
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
 
-class PostListView(LoginRequiredMixin,ListView):
+class PostListView(PermissionRequiredMixin,LoginRequiredMixin,ListView):
+    permission_required = 'blog.view_post'
     # model = Post
     queryset = Post.objects.filter(status=True).order_by('-created_date')
     context_object_name = 'posts'
