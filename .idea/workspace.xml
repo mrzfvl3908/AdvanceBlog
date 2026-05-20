@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6529504-7f04-4b22-859f-44ec48c1e77b" name="Changes" comment="" />
+    <list default="true" id="a6529504-7f04-4b22-859f-44ec48c1e77b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts_app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts_app/migrations/0002_profile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_app/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_app/migrations/0002_alter_category_options.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_app/migrations/0003_post_slug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_app/migrations/0004_alter_post_slug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_app/migrations/0005_alter_post_slug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_app/migrations/0006_remove_post_slug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_app/migrations/0007_post_slug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home_app/templates/home_app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home_app/templates/home_app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/battlefield-2042-3840x2160-e3-2021-screenshot-4k-23432.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/fifa-21-3840x2160-screenshot-4k-23013.jpg" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +61,7 @@
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;migrate-blog-to-profile&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/DjangoProject/AdvanceBlog/core/home_app/templates/home_app&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -134,6 +152,8 @@
       <workItem from="1779259351028" duration="8494000" />
       <workItem from="1779278764591" duration="1598000" />
       <workItem from="1779284049247" duration="603000" />
+      <workItem from="1779294583099" duration="1042000" />
+      <workItem from="1779295662563" duration="2032000" />
     </task>
     <servers />
   </component>

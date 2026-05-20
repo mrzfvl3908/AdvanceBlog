@@ -4,14 +4,14 @@ from django.urls import reverse
 from django.utils.text import slugify
 
 # getting user model object
-User = get_user_model()
+# User = get_user_model()
 
 
 class Post(models.Model):
     """
     this is  a class to define posts for blog app
     """
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey('accounts_app.Profile', on_delete=models.CASCADE)
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=200)
     image = models.ImageField(blank=True, null=True)
