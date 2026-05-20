@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic.base import TemplateView
 from blog_app.models import Post
 
@@ -17,3 +17,9 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
+
+
+class PostCreateView(CreateView):
+    model = Post
+    fields = ['author','title', 'content', 'status', 'category','published_date']
+    success_url = '/blog/post/'
